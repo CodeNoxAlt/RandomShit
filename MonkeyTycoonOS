@@ -1,0 +1,71 @@
+--DO NOT TOUCH--
+local library = loadstring(game:HttpGet('https://raw.githubusercontent.com/cypherdh/VanisUILIB/main/.gitignore'))()
+local Window = library:CreateWindow("MOnkey GUI", "1.0", 10044538000)
+local Tab = Window:CreateTab("Functions")
+local section1 = Tab:CreateFrame("Main")
+---------------------------------------------
+
+--EDIT THIS TO CHANGE HOW FAST TASKS ARE DONE, IF YOU LAG OR EXPERIENCE FRAME DROPS INCREASE THE NUMBER 
+local TaskTime = 0.5
+
+--Sections--
+tog1 = section1:CreateToggle("AutoGrabBananas","grabs bananas",function(v)
+    value = v
+end)
+tog2 = section1:CreateToggle("AutoDepoBanana","depos bananas",function(v2)
+    value2 = v2
+end)
+tog3 = section1:CreateToggle("AutoBuyMonkeys","buys monkeys",function(v3)
+    value3 = v3
+end)
+tog4 = section1:CreateToggle("AutoMerge","merges monkeys",function(v4)
+    value4 = v4
+end)
+tog5 = section1:CreateToggle("AutoBuyRate","buys rate for nana launcher",function(v5)
+    value5 = v5
+end)
+tog6 = section1:CreateToggle("AutoSacrifice","auto sacrifices monkeys for you",function(v6)
+    value6 = v6
+end)
+tog7 = section1:CreateToggle("AutoBuyMaxMonkeys","auto buys the max monkeys",function(v7)
+    value7 = v7
+end)
+--Functions--
+pcall(function()
+    local plr = game.Players.LocalPlayer
+    local chr = plr.Character
+    while wait(TaskTime) do 
+        if value then 
+            print(v)
+            for i,v in pairs(game:GetService("Workspace").Drops:GetChildren()) do
+                v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            end
+        end
+        if value2 == true then
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("DepositDrops"):FireServer()
+        end
+        if value3 == true then
+            local args = {
+                [1] = 1
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("BuyDropper"):FireServer(unpack(args))
+        end
+        if value4 == true then
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("MergeDroppers"):FireServer()
+        end
+        if value5 == true then
+            local args = {
+                [1] = 1
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("BuySpeed"):FireServer(unpack(args))
+        end
+        if value6 == true then
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("DoSacrifice"):FireServer()
+        end
+        if value7 == true then
+            game:GetService("ReplicatedStorage"):WaitForChild("GTycoonClient"):WaitForChild("Remotes"):WaitForChild("BuyDropperMax"):FireServer()
+        end
+    end
+end)
