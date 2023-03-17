@@ -30,6 +30,7 @@ end)
 tog7 = section1:CreateToggle("AutoBuyMaxMonkeys","auto buys the max monkeys",function(v7)
     value7 = v7
 end)
+Label = section1:CreateLabel("Made By CodeNox on V3rm (CodeNox#6939)")
 --Functions--
 pcall(function()
     local plr = game.Players.LocalPlayer
